@@ -8,7 +8,6 @@ public class Game {
     public int targetsToColour;
     private static Sprite[] sprites = Resources.LoadAll<Sprite>("");
 
-
     public static bool ColourTarget(Collider2D target, Colour colour)
     {
         SpriteRenderer spriteRenderer = target.GetComponent<SpriteRenderer>();

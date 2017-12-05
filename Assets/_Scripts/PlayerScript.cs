@@ -9,13 +9,14 @@ public class PlayerScript : MonoBehaviour {
     public float maxSpeed;
 
     private Colour bodyColour;
+        
     private Colour bucketColour;
 
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody2D>();
-        bodyColour = new Colour("Gray");
-        bucketColour = new Colour("Gray");
+        bodyColour = new Colour("Grey");
+        bucketColour = new Colour("Grey");
     }
 	
 	// Update is called once per frame
@@ -34,6 +35,10 @@ public class PlayerScript : MonoBehaviour {
         {
             rb.velocity = new Vector2(5, rb.velocity.y);
         }
+        else if (rb.velocity.x < -5)
+        {
+            rb.velocity = new Vector2(-5, rb.velocity.y);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -48,5 +53,11 @@ public class PlayerScript : MonoBehaviour {
                 bucketColour = new Colour("Gray");
             }
         }
+    }
+
+
+    public Colour GetBodyColour()
+    {
+        return bodyColour;
     }
 }
