@@ -50,7 +50,17 @@ public class PlayerScript : MonoBehaviour {
         {
             if(Game.ColourTarget(other, bucketColour))
             {
-                bucketColour = new Colour("Gray");
+                bucketColour = new Colour("Grey");
+            }
+        }
+        else if (other.gameObject.CompareTag("BucketCollectible"))
+        {
+            Debug.Log("Hi2");
+            if (bucketColour.colourName.Equals("Grey"))
+            {
+                bucketColour = other.GetComponent<BucketCollectibleScript>().PickUp();
+                Debug.Log("Hi3");
+                Destroy(other.gameObject);
             }
         }
     }

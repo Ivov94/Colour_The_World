@@ -78,6 +78,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\_Scripts\BucketCollectibleScript.cs" />
+    <Compile Include="Assets\_Scripts\CameraController.cs" />
     <Compile Include="Assets\_Scripts\Colour.cs" />
     <Compile Include="Assets\_Scripts\Game.cs" />
     <Compile Include="Assets\_Scripts\PlayerScript.cs" />
