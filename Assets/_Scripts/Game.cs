@@ -10,12 +10,14 @@ public class Game {
 
     public static bool ColourTarget(Collider2D target, Colour colour)
     {
-        SpriteRenderer spriteRenderer = target.GetComponent<SpriteRenderer>();
-        Sprite sprite = Resources.Load("Sprites/Target_1_CompletedRed", typeof(Sprite)) as Sprite;
-        Debug.Log(sprites.Length);
+        TargetScript targetScript = target.GetComponent<TargetScript>();
 
-        spriteRenderer.sprite = sprite;
-        return true;
+        if (targetScript.AttemptColouring(colour))
+        {
+            return true;
+        }
+
+        return false;
     }
 
     public static bool CheckColour()

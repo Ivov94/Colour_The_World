@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour {
 
-    public GameObject player;
+    private GameObject player;
 
 
     private Vector3 offset;
@@ -13,6 +13,8 @@ public class CameraController : MonoBehaviour {
     void Start()
     {
         //Calculate and store the offset value by getting the distance between the player's position and camera's position.
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        player = players[0].GetComponent<PlayerScript>().gameObject;
         offset = transform.position - player.transform.position;
     }
 

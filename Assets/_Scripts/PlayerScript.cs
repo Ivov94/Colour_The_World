@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,9 +8,9 @@ public class PlayerScript : MonoBehaviour {
     private Rigidbody2D rb;
     public float speed;
     public float maxSpeed;
+    public float bucketManVersion;
 
     private Colour bodyColour;
-        
     private Colour bucketColour;
 
     // Use this for initialization
@@ -39,6 +40,30 @@ public class PlayerScript : MonoBehaviour {
         {
             rb.velocity = new Vector2(-5, rb.velocity.y);
         }
+
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            SwapBodyBucketColour();
+        }
+    }
+
+    private void SwapBodyBucketColour()
+    {
+        if (bucketColour.colourName.Equals(bodyColour.colourName))
+        {
+            return;
+        }
+
+        Colour swap = bucketColour;
+        bucketColour = bodyColour;
+        bodyColour = swap;
+
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        Debug.Log("Sprites/Bucketman" + bucketManVersion + "Body" + bodyColour.colourName + "Bucket" + bucketColour.colourName);
+        Sprite sprite = Resources.Load("Sprites/Bucketman" + bucketManVersion + "Body" + bodyColour.colourName + "Bucket" + bucketColour.colourName, typeof(Sprite)) as Sprite;
+        spriteRenderer.sprite = sprite;
+
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -51,6 +76,10 @@ public class PlayerScript : MonoBehaviour {
             if(Game.ColourTarget(other, bucketColour))
             {
                 bucketColour = new Colour("Grey");
+                SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+                Debug.Log("Sprites/Bucketman" + bucketManVersion + "Body" + bodyColour.colourName + "Bucket" + bucketColour.colourName);
+                Sprite sprite = Resources.Load("Sprites/Bucketman" + bucketManVersion + "Body" + bodyColour.colourName + "Bucket" + bucketColour.colourName, typeof(Sprite)) as Sprite;
+                spriteRenderer.sprite = sprite;
             }
         }
         else if (other.gameObject.CompareTag("BucketCollectible"))
@@ -59,7 +88,10 @@ public class PlayerScript : MonoBehaviour {
             if (bucketColour.colourName.Equals("Grey"))
             {
                 bucketColour = other.GetComponent<BucketCollectibleScript>().PickUp();
-                Debug.Log("Hi3");
+                SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+                Debug.Log("Sprites/Bucketman" + bucketManVersion + "Body" + bodyColour.colourName + "Bucket" + bucketColour.colourName);
+                Sprite sprite = Resources.Load("Sprites/Bucketman" + bucketManVersion + "Body" + bodyColour.colourName + "Bucket" + bucketColour.colourName , typeof(Sprite)) as Sprite;
+                spriteRenderer.sprite = sprite;
                 Destroy(other.gameObject);
             }
         }
