@@ -45,9 +45,18 @@ public class BucketCollectibleScript : MonoBehaviour {
         return collectibleColour;
     }
 
-    public Colour ExchangeColour (Colour newColour)
+    public Colour PickUp(Colour colour)
     {
+        Colour swap = collectibleColour;
+        collectibleColour = colour;
+        UpdateSprite();
+        return swap;
+    }
 
-        return collectibleColour;
+    public void UpdateSprite()
+    {
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        Sprite sprite = Resources.Load("Sprites/Bucket_Collectible/Bucket_Collectible_" + collectibleColour.colourName, typeof(Sprite)) as Sprite;
+        spriteRenderer.sprite = sprite;
     }
 }

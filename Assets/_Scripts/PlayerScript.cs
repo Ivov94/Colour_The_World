@@ -12,12 +12,14 @@ public class PlayerScript : MonoBehaviour {
 
     private Colour bodyColour;
     private Colour bucketColour;
+    private Boolean jumpReady;
 
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody2D>();
         bodyColour = new Colour("Grey");
         bucketColour = new Colour("Grey");
+        jumpReady = false;
     }
 	
 	// Update is called once per frame
@@ -25,9 +27,14 @@ public class PlayerScript : MonoBehaviour {
 		float movementX = Input.GetAxis("Horizontal");
         float movementY = 0;
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && jumpReady)
         {
-            movementY = 30;
+            jumpReady = false;
+            if (rb.velocity.y >= -0.1)
+            {
+                movementY = 30;
+            }
+            
         }
 
         Vector2 movement = new Vector2(movementX, movementY);
@@ -59,40 +66,41 @@ public class PlayerScript : MonoBehaviour {
         bucketColour = bodyColour;
         bodyColour = swap;
 
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        Debug.Log("Sprites/Bucketman" + bucketManVersion + "Body" + bodyColour.colourName + "Bucket" + bucketColour.colourName);
-        Sprite sprite = Resources.Load("Sprites/Bucketman" + bucketManVersion + "Body" + bodyColour.colourName + "Bucket" + bucketColour.colourName, typeof(Sprite)) as Sprite;
-        spriteRenderer.sprite = sprite;
+        UpdateSprite();
 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.transform.position.y + collision.gameObject.GetComponent<Collider2D>().bounds.extents.y < transform.position.y - GetComponent<Collider2D>().bounds.extents.y)
+        {
+            jumpReady = true;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Hi");
-        //Destroy(other.gameObject);
-
         if (other.gameObject.CompareTag("ColourTarget"))
         {
             if(Game.ColourTarget(other, bucketColour))
             {
                 bucketColour = new Colour("Grey");
-                SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-                Debug.Log("Sprites/Bucketman" + bucketManVersion + "Body" + bodyColour.colourName + "Bucket" + bucketColour.colourName);
-                Sprite sprite = Resources.Load("Sprites/Bucketman" + bucketManVersion + "Body" + bodyColour.colourName + "Bucket" + bucketColour.colourName, typeof(Sprite)) as Sprite;
-                spriteRenderer.sprite = sprite;
+                UpdateSprite();
+                
             }
         }
         else if (other.gameObject.CompareTag("BucketCollectible"))
         {
-            Debug.Log("Hi2");
             if (bucketColour.colourName.Equals("Grey"))
             {
                 bucketColour = other.GetComponent<BucketCollectibleScript>().PickUp();
-                SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-                Debug.Log("Sprites/Bucketman" + bucketManVersion + "Body" + bodyColour.colourName + "Bucket" + bucketColour.colourName);
-                Sprite sprite = Resources.Load("Sprites/Bucketman" + bucketManVersion + "Body" + bodyColour.colourName + "Bucket" + bucketColour.colourName , typeof(Sprite)) as Sprite;
-                spriteRenderer.sprite = sprite;
+                UpdateSprite();
                 Destroy(other.gameObject);
+            }
+            else
+            {
+                bucketColour = other.GetComponent<BucketCollectibleScript>().PickUp(bucketColour);
+                UpdateSprite();
             }
         }
     }
@@ -101,5 +109,12 @@ public class PlayerScript : MonoBehaviour {
     public Colour GetBodyColour()
     {
         return bodyColour;
+    }
+
+    public void UpdateSprite()
+    {
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        Sprite sprite = Resources.Load("Sprites/Bucketman/" + bucketManVersion + "/Bucketman" + bucketManVersion + "Body" + bodyColour.colourName + "Bucket" + bucketColour.colourName, typeof(Sprite)) as Sprite;
+        spriteRenderer.sprite = sprite;
     }
 }
