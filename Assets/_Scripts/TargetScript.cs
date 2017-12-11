@@ -25,9 +25,11 @@ public class TargetScript : MonoBehaviour {
         if (colour.colourName.Equals(targetColour.colourName) && !coloured)
         {
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-            Sprite sprite = Resources.Load("Sprites/Target_1_CompletedRed", typeof(Sprite)) as Sprite;
+            Sprite sprite = Resources.Load("Sprites/Target_1_Completed" + targetColour.colourName, typeof(Sprite)) as Sprite;
+
 
             spriteRenderer.sprite = sprite;
+            Destroy(transform.Find("Target_Info" + targetColour.colourName).gameObject);
             coloured = true;
             return true;
         }
