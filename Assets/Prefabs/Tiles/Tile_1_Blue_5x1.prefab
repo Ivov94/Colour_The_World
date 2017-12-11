@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ec6d355eea5664e82e7c2c666a0f80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingColour: Red
+  startingColour: Blue
 --- !u!212 &212423202918980632
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -9,10 +9,13 @@ public class PlayerScript : MonoBehaviour {
     public float speed;
     public float maxSpeed;
     public float bucketManVersion;
+    public float jumpForce;
 
     private Colour bodyColour;
     private Colour bucketColour;
     private Boolean jumpReady;
+
+    private float collisionTolerance;
 
     // Use this for initialization
     void Start () {
@@ -20,6 +23,7 @@ public class PlayerScript : MonoBehaviour {
         bodyColour = new Colour("Grey");
         bucketColour = new Colour("Grey");
         jumpReady = false;
+        collisionTolerance = 0.1f;
     }
 	
 	// Update is called once per frame
@@ -29,10 +33,11 @@ public class PlayerScript : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Space) && jumpReady)
         {
-            jumpReady = false;
+            
             if (rb.velocity.y >= -0.1)
             {
-                movementY = 30;
+                jumpReady = false;
+                movementY = jumpForce;
             }
             
         }
@@ -72,7 +77,8 @@ public class PlayerScript : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.transform.position.y + collision.gameObject.GetComponent<Collider2D>().bounds.extents.y < transform.position.y - GetComponent<Collider2D>().bounds.extents.y)
+        if (collision.gameObject.transform.position.y + collision.gameObject.GetComponent<Collider2D>().bounds.extents.y 
+            < transform.position.y - GetComponent<Collider2D>().bounds.extents.y + collisionTolerance)
         {
             jumpReady = true;
         }
