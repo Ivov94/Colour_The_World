@@ -82,6 +82,7 @@
     <Compile Include="Assets\_Scripts\CameraController.cs" />
     <Compile Include="Assets\_Scripts\Colour.cs" />
     <Compile Include="Assets\_Scripts\Game.cs" />
+    <Compile Include="Assets\_Scripts\Menu\MenuPause.cs" />
     <Compile Include="Assets\_Scripts\Menu\MenuStarting.cs" />
     <Compile Include="Assets\_Scripts\PlayerScript.cs" />
     <Compile Include="Assets\_Scripts\Robot_ColourChanger.cs" />
