@@ -15,10 +15,12 @@ public class PlayerScript : MonoBehaviour {
     private Colour bucketColour;
     private Boolean jumpReady;
 
+    private Game game;
     private float collisionTolerance;
 
     // Use this for initialization
     void Start () {
+        game = GameObject.FindGameObjectsWithTag("GameController")[0].GetComponent<Game>();
         rb = GetComponent<Rigidbody2D>();
         bodyColour = new Colour("Grey");
         bucketColour = new Colour("Grey");
@@ -42,8 +44,8 @@ public class PlayerScript : MonoBehaviour {
             
         }
 
-        Vector2 movement = new Vector2(movementX, movementY);
-        rb.AddForce(movement * speed);
+        Vector2 movement = new Vector2(movementX * speed, movementY);
+        rb.AddForce(movement, ForceMode2D.Impulse);
         if (rb.velocity.x > 5)
         {
             rb.velocity = new Vector2(5, rb.velocity.y);
@@ -88,7 +90,7 @@ public class PlayerScript : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("ColourTarget"))
         {
-            if(Game.ColourTarget(other, bucketColour))
+            if(game.ColourTarget(other, bucketColour))
             {
                 bucketColour = new Colour("Grey");
                 UpdateSprite();

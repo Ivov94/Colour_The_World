@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1781138269431318}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -7, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -50,7 +50,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 1781138269431318}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: f346602cfa9497242be7394d71d25379, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -66,13 +66,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 3.195456, y: 0.62949663}
-      - {x: 2.4544973, y: 0.64611435}
-      - {x: -2.4154716, y: 0.64183444}
-      - {x: -3.2012467, y: 0.63216454}
+    - - {x: 2.1760912, y: 0.64033747}
+      - {x: -3.2010555, y: 0.63788795}
       - {x: -3.1999998, y: -0.64}
       - {x: 3.1999998, y: -0.64}
-      - {x: 3.1999998, y: 0.62147987}
+      - {x: 3.1999998, y: 0.6378875}
 --- !u!114 &114334804351651360
 MonoBehaviour:
   m_ObjectHideFlags: 1
