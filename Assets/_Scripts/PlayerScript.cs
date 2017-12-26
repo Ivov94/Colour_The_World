@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour {
 
     private Rigidbody2D rb;
-    public float speed;
+    public float acceleration;
     public float maxSpeed;
     public float bucketManVersion;
     public float jumpForce;
@@ -43,14 +43,14 @@ public class PlayerScript : MonoBehaviour {
             }
             
         }
-
-        Vector2 movement = new Vector2(movementX * speed, movementY);
-        rb.AddForce(movement, ForceMode2D.Impulse);
-        if (rb.velocity.x > 5)
+        
+        rb.AddForce(new Vector2(movementX * acceleration, 0));
+        rb.AddForce(new Vector2(0, movementY), ForceMode2D.Impulse);
+        if (rb.velocity.x > maxSpeed)
         {
             rb.velocity = new Vector2(5, rb.velocity.y);
         }
-        else if (rb.velocity.x < -5)
+        else if (rb.velocity.x < -maxSpeed)
         {
             rb.velocity = new Vector2(-5, rb.velocity.y);
         }
@@ -77,11 +77,14 @@ public class PlayerScript : MonoBehaviour {
 
     }
 
+    
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.transform.position.y + collision.gameObject.GetComponent<Collider2D>().bounds.extents.y 
             < transform.position.y - GetComponent<Collider2D>().bounds.extents.y + collisionTolerance)
         {
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y);
             jumpReady = true;
         }
     }
@@ -111,7 +114,13 @@ public class PlayerScript : MonoBehaviour {
                 UpdateSprite();
             }
         }
+        else if (other.gameObject.CompareTag("CameraChanger"))
+        {
+            other.GetComponent<CameraChangerScript>().Switch();
+        }
     }
+
+
 
 
     public Colour GetBodyColour()

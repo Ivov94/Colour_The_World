@@ -5,6 +5,10 @@ using UnityEngine;
 public class TileScript : MonoBehaviour {
 
     public string startingColour;
+    public int TileVersion;
+    public int Length;
+    public int Height;
+
     private Colour tileColour;
     private Collider2D collider;
 
@@ -31,4 +35,23 @@ public class TileScript : MonoBehaviour {
             collider.enabled = true;
         }
 	}
+
+    private void UpdateSprite()
+    {
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        Sprite sprite = Resources.Load("Sprites/Tiles/Tile_" + TileVersion + "_" + tileColour.colourName + "_" + Length + "x" + Height, typeof(Sprite)) as Sprite;
+        spriteRenderer.sprite = sprite;
+    }
+
+
+    public Colour GetTileColour()
+    {
+        return tileColour;
+    }
+
+    public void SetColour(Colour newColour)
+    {
+        tileColour = newColour;
+        UpdateSprite();
+    }
 }

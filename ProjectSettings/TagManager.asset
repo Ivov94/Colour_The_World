@@ -6,6 +6,9 @@ TagManager:
   tags:
   - ColourTarget
   - BucketCollectible
+  - Robot_ColourChanger
+  - Camera
+  - CameraChanger
   layers:
   - Default
   - TransparentFX
