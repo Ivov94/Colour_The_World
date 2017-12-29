@@ -81,13 +81,17 @@
     <Compile Include="Assets\_Scripts\BucketCollectibleScript.cs" />
     <Compile Include="Assets\_Scripts\Camera\CameraChangerScript.cs" />
     <Compile Include="Assets\_Scripts\Camera\CameraController.cs" />
+    <Compile Include="Assets\_Scripts\Camera\SideCameraScript.cs" />
     <Compile Include="Assets\_Scripts\Colour.cs" />
     <Compile Include="Assets\_Scripts\ExlamationMarkScript.cs" />
     <Compile Include="Assets\_Scripts\Game.cs" />
+    <Compile Include="Assets\_Scripts\InfoToggleScript.cs" />
     <Compile Include="Assets\_Scripts\Menu\MenuPause.cs" />
     <Compile Include="Assets\_Scripts\Menu\MenuStarting.cs" />
     <Compile Include="Assets\_Scripts\PlayerScript.cs" />
-    <Compile Include="Assets\_Scripts\Robot_ColourChanger.cs" />
+    <Compile Include="Assets\_Scripts\Robots\FunnelScript.cs" />
+    <Compile Include="Assets\_Scripts\Robots\Robot_ColourChanger.cs" />
+    <Compile Include="Assets\_Scripts\Robots\RobotScript.cs" />
     <Compile Include="Assets\_Scripts\TargetScript.cs" />
     <Compile Include="Assets\_Scripts\TileScript.cs" />
   </ItemGroup>

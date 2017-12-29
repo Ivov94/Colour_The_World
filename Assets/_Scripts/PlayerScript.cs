@@ -18,6 +18,8 @@ public class PlayerScript : MonoBehaviour {
     private Game game;
     private float collisionTolerance;
 
+    private RobotScript interactionRobot;
+
     // Use this for initialization
     void Start () {
         game = GameObject.FindGameObjectsWithTag("GameController")[0].GetComponent<Game>();
@@ -26,6 +28,7 @@ public class PlayerScript : MonoBehaviour {
         bucketColour = new Colour("Grey");
         jumpReady = false;
         collisionTolerance = 0.1f;
+        interactionRobot = null;
     }
 	
 	// Update is called once per frame
@@ -60,6 +63,26 @@ public class PlayerScript : MonoBehaviour {
         {
             SwapBodyBucketColour();
         }
+
+        if (Input.GetKeyDown(KeyCode.T) && interactionRobot != null)
+        {
+            
+            bool colourUsed = false;
+            if (bucketColour.colourName.Equals("Grey"))
+            {
+                interactionRobot.Interact();
+            }
+            else
+            {
+                colourUsed = interactionRobot.Interact(bucketColour);
+            }
+            
+            if (colourUsed)
+            {
+                bucketColour = new Colour("Grey");
+                UpdateSprite();
+            }
+        }
     }
 
     private void SwapBodyBucketColour()
@@ -76,9 +99,7 @@ public class PlayerScript : MonoBehaviour {
         UpdateSprite();
 
     }
-
     
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.transform.position.y + collision.gameObject.GetComponent<Collider2D>().bounds.extents.y 
@@ -118,9 +139,22 @@ public class PlayerScript : MonoBehaviour {
         {
             other.GetComponent<CameraChangerScript>().Switch();
         }
+        else if (other.gameObject.CompareTag("Robot"))
+        {
+            other.GetComponent<RobotScript>().ToggleInfo();
+            interactionRobot = other.GetComponent<RobotScript>();
+            
+        }
     }
 
-
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Robot"))
+        {
+            other.GetComponent<RobotScript>().ToggleInfo();
+            interactionRobot = null;
+        }
+    }
 
 
     public Colour GetBodyColour()

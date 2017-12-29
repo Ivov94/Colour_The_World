@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Robot_ColourChanger : MonoBehaviour {
+public class Robot_ColourChanger : RobotScript {
 
     private static float robotVersion = 1;
 
@@ -73,5 +73,20 @@ public class Robot_ColourChanger : MonoBehaviour {
         colourInput = drawnFromTile;
 
         UpdateSprite();
+    }
+
+    public override bool Interact()
+    {
+        return false;
+    }
+
+    public override bool Interact(Colour bucketColour)
+    {
+        return false;
+    }
+
+    public override void ToggleInfo()
+    {
+        return;
     }
 }

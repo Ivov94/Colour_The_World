@@ -9,6 +9,8 @@ TagManager:
   - Robot_ColourChanger
   - Camera
   - CameraChanger
+  - Info
+  - Robot
   layers:
   - Default
   - TransparentFX
