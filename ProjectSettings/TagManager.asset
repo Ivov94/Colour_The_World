@@ -11,6 +11,7 @@ TagManager:
   - CameraChanger
   - Info
   - Robot
+  - Hazard
   layers:
   - Default
   - TransparentFX

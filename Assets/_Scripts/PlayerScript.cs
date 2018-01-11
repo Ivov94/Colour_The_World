@@ -105,7 +105,7 @@ public class PlayerScript : MonoBehaviour {
         if (collision.gameObject.transform.position.y + collision.gameObject.GetComponent<Collider2D>().bounds.extents.y 
             < transform.position.y - GetComponent<Collider2D>().bounds.extents.y + collisionTolerance)
         {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y);
+            rb.velocity = new Vector2(-collision.relativeVelocity.x, 0);
             jumpReady = true;
         }
     }
@@ -137,13 +137,21 @@ public class PlayerScript : MonoBehaviour {
         }
         else if (other.gameObject.CompareTag("CameraChanger"))
         {
-            other.GetComponent<CameraChangerScript>().Switch();
+            if (!other.GetComponent<CameraChangerScript>().Switched)
+            {
+                other.GetComponent<CameraChangerScript>().Switch();
+            }
+            
         }
         else if (other.gameObject.CompareTag("Robot"))
         {
             other.GetComponent<RobotScript>().ToggleInfo();
             interactionRobot = other.GetComponent<RobotScript>();
             
+        }
+        else if (other.gameObject.CompareTag("Hazard"))
+        {
+            Destroy(this.gameObject);
         }
     }
 
@@ -153,6 +161,13 @@ public class PlayerScript : MonoBehaviour {
         {
             other.GetComponent<RobotScript>().ToggleInfo();
             interactionRobot = null;
+        }
+        else if (other.gameObject.CompareTag("CameraChanger"))
+        {
+            if (other.GetComponent<CameraChangerScript>().Switched)
+            {
+                other.GetComponent<CameraChangerScript>().Switch();
+            }
         }
     }
 
