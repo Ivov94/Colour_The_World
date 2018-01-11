@@ -32,7 +32,7 @@ public class PlayerScript : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		float movementX = Input.GetAxis("Horizontal");
         float movementY = 0;
 
@@ -43,20 +43,25 @@ public class PlayerScript : MonoBehaviour {
             {
                 jumpReady = false;
                 movementY = jumpForce;
+                
             }
             
         }
-        
-        rb.AddForce(new Vector2(movementX * acceleration, 0));
+
+        //rb.AddForce(new Vector2(movementX * acceleration, 0));
+
+        rb.velocity = new Vector2(movementX * acceleration, rb.velocity.y);
         rb.AddForce(new Vector2(0, movementY), ForceMode2D.Impulse);
-        if (rb.velocity.x > maxSpeed)
-        {
-            rb.velocity = new Vector2(5, rb.velocity.y);
-        }
-        else if (rb.velocity.x < -maxSpeed)
-        {
-            rb.velocity = new Vector2(-5, rb.velocity.y);
-        }
+
+        //we dont need it anymore
+        //if (rb.velocity.x > maxSpeed)
+        //{
+        //    rb.velocity = new Vector2(5, rb.velocity.y);
+        //}
+        //else if (rb.velocity.x < -maxSpeed)
+        //{
+        //    rb.velocity = new Vector2(-5, rb.velocity.y);
+        //}
 
 
         if (Input.GetKeyDown(KeyCode.Tab))
@@ -112,6 +117,9 @@ public class PlayerScript : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
+
+
+
         if (other.gameObject.CompareTag("ColourTarget"))
         {
             if(game.ColourTarget(other, bucketColour))
