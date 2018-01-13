@@ -31,7 +31,7 @@ public class PlayerScript : MonoBehaviour {
         interactionRobot = null;
     }
 	
-	// Update is called once per frame
+
 	void FixedUpdate () {
 		float movementX = Input.GetAxis("Horizontal");
         float movementY = 0;
@@ -51,6 +51,7 @@ public class PlayerScript : MonoBehaviour {
         //rb.AddForce(new Vector2(movementX * acceleration, 0));
 
         rb.velocity = new Vector2(movementX * acceleration, rb.velocity.y);
+
         rb.AddForce(new Vector2(0, movementY), ForceMode2D.Impulse);
 
         //we dont need it anymore

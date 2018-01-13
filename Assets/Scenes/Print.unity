@@ -319,6 +319,46 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: 3.3
       objectReference: {fileID: 0}
+    - target: {fileID: 114252277692265682, guid: 21e104f98d471ee4b8796fdc182c3712,
+        type: 2}
+      propertyPath: acceleration
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 50522389958612872, guid: 21e104f98d471ee4b8796fdc182c3712,
+        type: 2}
+      propertyPath: m_UseAutoMass
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50522389958612872, guid: 21e104f98d471ee4b8796fdc182c3712,
+        type: 2}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 50522389958612872, guid: 21e104f98d471ee4b8796fdc182c3712,
+        type: 2}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 50522389958612872, guid: 21e104f98d471ee4b8796fdc182c3712,
+        type: 2}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50522389958612872, guid: 21e104f98d471ee4b8796fdc182c3712,
+        type: 2}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50522389958612872, guid: 21e104f98d471ee4b8796fdc182c3712,
+        type: 2}
+      propertyPath: m_LinearDrag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 50522389958612872, guid: 21e104f98d471ee4b8796fdc182c3712,
+        type: 2}
+      propertyPath: m_AngularDrag
+      value: 0.05
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 21e104f98d471ee4b8796fdc182c3712, type: 2}
   m_IsPrefabParent: 0
