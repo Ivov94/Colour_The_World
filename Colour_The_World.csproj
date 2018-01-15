@@ -95,7 +95,7 @@
     <Compile Include="Assets\_Scripts\Robots\RobotScript.cs" />
     <Compile Include="Assets\_Scripts\TargetScript.cs" />
     <Compile Include="Assets\_Scripts\TileScript.cs" />
-    <Compile Include="Assets\Scripts\WallScript.cs" />
+    <Compile Include="Assets\_Scripts\WallScript.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

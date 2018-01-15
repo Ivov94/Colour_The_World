@@ -9,12 +9,19 @@ public class Game : MonoBehaviour{
     private Sprite[] sprites;
     public Transform canvasEnd;
 
+    [Range(0.0f, 1.0f)]
+    public float bckgrndMusicVolume;
+
 
     private void Start()
     {
         targetsToColour = GameObject.FindGameObjectsWithTag("ColourTarget").Length;
         
         sprites = Resources.LoadAll<Sprite>("");
+
+        AudioSource audioSrc = GetComponent<AudioSource>();
+        audioSrc.volume = bckgrndMusicVolume;
+        audioSrc.Play();
 
     }
 
