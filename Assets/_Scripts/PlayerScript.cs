@@ -32,7 +32,7 @@ public class PlayerScript : MonoBehaviour {
     }
 	
 
-	void FixedUpdate () {
+	void Update () {
 		float movementX = Input.GetAxis("Horizontal");
         float movementY = 0;
 
