@@ -86,6 +86,7 @@
     <Compile Include="Assets\_Scripts\Colour.cs" />
     <Compile Include="Assets\_Scripts\ExlamationMarkScript.cs" />
     <Compile Include="Assets\_Scripts\Game.cs" />
+    <Compile Include="Assets\_Scripts\InfoSignScript.cs" />
     <Compile Include="Assets\_Scripts\InfoToggleScript.cs" />
     <Compile Include="Assets\_Scripts\Menu\MenuPause.cs" />
     <Compile Include="Assets\_Scripts\Menu\MenuStarting.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="Assets\_Scripts\Robots\RobotScript.cs" />
     <Compile Include="Assets\_Scripts\TargetScript.cs" />
     <Compile Include="Assets\_Scripts\TileScript.cs" />
+    <Compile Include="Assets\_Scripts\ToolTipScript.cs" />
     <Compile Include="Assets\_Scripts\WallScript.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

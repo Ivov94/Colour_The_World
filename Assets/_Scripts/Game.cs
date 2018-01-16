@@ -34,8 +34,14 @@ public class Game : MonoBehaviour{
             targetsToColour--;
             if (targetsToColour <= 0)
             {
-                canvasEnd.gameObject.SetActive(true);
-                Time.timeScale = 0;
+                if (canvasEnd != null)
+                {
+                    canvasEnd.gameObject.SetActive(true);
+                    Time.timeScale = 0;
+                }
+                else
+                    Debug.Log("canvasEnd NOT SET");
+
             }
 
             
