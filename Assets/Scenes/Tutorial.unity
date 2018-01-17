@@ -473,9 +473,9 @@ Prefab:
     - target: {fileID: 114524280431932726, guid: 65f2464d3d3338c47853779cf4595904,
         type: 2}
       propertyPath: mainText
-      value: Probably you've already understood it anyway, but what the heck, this
-        is a tutorial. You can switch between the colours back and forth. Just pressing
-        TAB multiple times to overcome the 2 walls.
+      value: Probably you've already figured it out anyway, but what the heck, this
+        is a tutorial. You can switch between the colours back and forth. Just press
+        TAB multiple times to pass both walls.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 65f2464d3d3338c47853779cf4595904, type: 2}
@@ -788,8 +788,8 @@ Prefab:
     - target: {fileID: 114524280431932726, guid: 65f2464d3d3338c47853779cf4595904,
         type: 2}
       propertyPath: mainText
-      value: Now paint yourself with blue by hitting TAB to be able to walk through
-        the blue wall.
+      value: Now paint yourself with blue by hitting TAB to walk through the blue
+        wall.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 65f2464d3d3338c47853779cf4595904, type: 2}
@@ -851,7 +851,7 @@ Prefab:
         type: 2}
       propertyPath: mainText
       value: If you flushed down a wrong colour, it is ok. Your can always hit ESC
-        button and restart the level. Be carefull! Think first, flush afterwards!
+        button and restart the level. Be carefull! Think first, then flush!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 65f2464d3d3338c47853779cf4595904, type: 2}
@@ -1168,11 +1168,11 @@ Prefab:
         type: 2}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 94212cedd45f7d84682d8b517101f7ba, type: 3}
+      objectReference: {fileID: 8300000, guid: 742ec8600463bdd45b2ffd7887878b00, type: 3}
     - target: {fileID: 114585658954031826, guid: a8a5badedd088dc4ca92dc207fa58079,
         type: 2}
       propertyPath: bckgrndMusicVolume
-      value: 0
+      value: 0.337
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a8a5badedd088dc4ca92dc207fa58079, type: 2}
@@ -1791,6 +1791,12 @@ Prefab:
       propertyPath: m_Name
       value: infoSignCollectBucket
       objectReference: {fileID: 0}
+    - target: {fileID: 114524280431932726, guid: 65f2464d3d3338c47853779cf4595904,
+        type: 2}
+      propertyPath: mainText
+      value: 'Hey! This is a short tutorial on how to play this game. There is a bucket
+        next to you. Go ahead an collect it. '
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 65f2464d3d3338c47853779cf4595904, type: 2}
   m_IsPrefabParent: 0
@@ -2296,8 +2302,8 @@ Prefab:
     - target: {fileID: 114524280431932726, guid: 65f2464d3d3338c47853779cf4595904,
         type: 2}
       propertyPath: mainText
-      value: You can flush colours down the "toilett" on the top. It will colour the
-        tilebelow with the same colour and you will be able to fall though it.
+      value: You can flush colours down the "toilett" which is above. It will paint
+        the tile below with the same colour and then you can fall though it.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 65f2464d3d3338c47853779cf4595904, type: 2}
@@ -2400,7 +2406,7 @@ Prefab:
     - target: {fileID: 114524280431932726, guid: 65f2464d3d3338c47853779cf4595904,
         type: 2}
       propertyPath: mainText
-      value: These big fellows need to be fed with a colour. This one asks for green.
+      value: These big fellows just crave for your paint. This one asks for green.
         You need to feed all of them to win a real level!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
