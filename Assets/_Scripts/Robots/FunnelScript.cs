@@ -70,7 +70,11 @@ public class FunnelScript : RobotScript {
 
     public override void ToggleInfo()
     {
-        info.ToggleActive();
+        if (open)
+        {
+            info.ToggleActive();
+        }
+        
     }
 
 
@@ -88,6 +92,7 @@ public class FunnelScript : RobotScript {
         input = bucketColour;
         open = false;
         UpdateSprite();
+        info.ToggleActive();
         return true;
     }
 
