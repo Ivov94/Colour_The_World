@@ -20,6 +20,28 @@ public class PlayerScript : MonoBehaviour {
 
     private RobotScript interactionRobot;
 
+    private AudioSource audioSource;
+
+    public AudioClip pickupAudioClip;
+    [Range(0.0f,1.0f)]
+    public float pickupVolume;
+
+    public AudioClip goalPaintedAudioClip;
+    [Range(0.0f, 1.0f)]
+    public float goalPaintedVolume;
+
+    public AudioClip flushingAudioClip;
+    [Range(0.0f, 1.0f)]
+    public float flushingVolume;
+
+    public AudioClip swapColourAudioClip;
+    [Range(0.0f, 1.0f)]
+    public float swapColourVolume;
+
+    public AudioClip jumpAudioClip;
+    [Range(0.0f, 1.0f)]
+    public float jumpVolume;
+
     // Use this for initialization
     void Start () {
         game = GameObject.FindGameObjectsWithTag("GameController")[0].GetComponent<Game>();
@@ -29,9 +51,10 @@ public class PlayerScript : MonoBehaviour {
         jumpReady = false;
         collisionTolerance = 0.1f;
         interactionRobot = null;
+        audioSource = GetComponent<AudioSource>();
     }
 	
-	// Update is called once per frame
+
 	void Update () {
 		float movementX = Input.GetAxis("Horizontal");
         float movementY = 0;
@@ -43,25 +66,38 @@ public class PlayerScript : MonoBehaviour {
             {
                 jumpReady = false;
                 movementY = jumpForce;
+
+                audioSource.volume = jumpVolume;
+                audioSource.PlayOneShot(jumpAudioClip);
+
             }
             
         }
-        
-        rb.AddForce(new Vector2(movementX * acceleration, 0));
+
+        //rb.AddForce(new Vector2(movementX * acceleration, 0));
+
+        rb.velocity = new Vector2(movementX * acceleration, rb.velocity.y);
+
         rb.AddForce(new Vector2(0, movementY), ForceMode2D.Impulse);
-        if (rb.velocity.x > maxSpeed)
-        {
-            rb.velocity = new Vector2(5, rb.velocity.y);
-        }
-        else if (rb.velocity.x < -maxSpeed)
-        {
-            rb.velocity = new Vector2(-5, rb.velocity.y);
-        }
+
+        //we dont need it anymore
+        //if (rb.velocity.x > maxSpeed)
+        //{
+        //    rb.velocity = new Vector2(5, rb.velocity.y);
+        //}
+        //else if (rb.velocity.x < -maxSpeed)
+        //{
+        //    rb.velocity = new Vector2(-5, rb.velocity.y);
+        //}
 
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            SwapBodyBucketColour();
+            if (SwapBodyBucketColour())
+            {
+                audioSource.volume = swapColourVolume;
+                audioSource.PlayOneShot(swapColourAudioClip);
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.T) && interactionRobot != null)
@@ -79,17 +115,19 @@ public class PlayerScript : MonoBehaviour {
             
             if (colourUsed)
             {
+                audioSource.volume = flushingVolume;
+                audioSource.PlayOneShot(flushingAudioClip);
                 bucketColour = new Colour("Grey");
                 UpdateSprite();
             }
         }
     }
 
-    private void SwapBodyBucketColour()
+    private bool SwapBodyBucketColour()
     {
         if (bucketColour.colourName.Equals(bodyColour.colourName))
         {
-            return;
+            return false;
         }
 
         Colour swap = bucketColour;
@@ -98,6 +136,7 @@ public class PlayerScript : MonoBehaviour {
 
         UpdateSprite();
 
+        return true;
     }
     
     private void OnCollisionEnter2D(Collision2D collision)
@@ -112,10 +151,15 @@ public class PlayerScript : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
+
+
+
         if (other.gameObject.CompareTag("ColourTarget"))
         {
             if(game.ColourTarget(other, bucketColour))
             {
+                audioSource.volume = goalPaintedVolume;
+                audioSource.PlayOneShot(goalPaintedAudioClip);
                 bucketColour = new Colour("Grey");
                 UpdateSprite();
                 
@@ -123,6 +167,9 @@ public class PlayerScript : MonoBehaviour {
         }
         else if (other.gameObject.CompareTag("BucketCollectible"))
         {
+            audioSource.volume = pickupVolume;
+            audioSource.PlayOneShot(pickupAudioClip);
+
             if (bucketColour.colourName.Equals("Grey"))
             {
                 bucketColour = other.GetComponent<BucketCollectibleScript>().PickUp();
@@ -145,6 +192,7 @@ public class PlayerScript : MonoBehaviour {
         }
         else if (other.gameObject.CompareTag("Robot"))
         {
+
             other.GetComponent<RobotScript>().ToggleInfo();
             interactionRobot = other.GetComponent<RobotScript>();
             

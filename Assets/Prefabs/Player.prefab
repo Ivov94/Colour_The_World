@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114252277692265682}
   - component: {fileID: 50522389958612872}
   - component: {fileID: 61482449155898392}
+  - component: {fileID: 82856630586269894}
   m_Layer: 0
   m_Name: Bucketman1.2
   m_TagString: Player
@@ -52,7 +53,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1729649324690144}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25, y: 3, z: 0}
+  m_LocalPosition: {x: -16.504105, y: -0.9737127, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4661677702988714}
@@ -66,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1214814290167138}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 12.556528, y: 3.3240423, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4007872879642780}
@@ -117,6 +118,86 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.28, y: 2.56}
   m_EdgeRadius: 0
+--- !u!82 &82856630586269894
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1214814290167138}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.297
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114252277692265682
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -128,10 +209,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88679b1b43195cc458495fa27ec7479a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 40
+  acceleration: 10
   maxSpeed: 5
   bucketManVersion: 1.2
   jumpForce: 20
+  pickupAudioClip: {fileID: 8300000, guid: 29bde6326b4c34ad8a12da475f79b50a, type: 3}
+  pickupVolume: 0.466
+  goalPaintedAudioClip: {fileID: 8300000, guid: 2667a0a008b044e218b63df62e2be749,
+    type: 3}
+  goalPaintedVolume: 1
+  flushingAudioClip: {fileID: 8300000, guid: 9a75be5842b0f734a8479f7eb3ef108d, type: 3}
+  flushingVolume: 1
+  swapColourAudioClip: {fileID: 8300000, guid: d46323e22e74e46baa241cbf48c85671, type: 3}
+  swapColourVolume: 0.732
+  jumpAudioClip: {fileID: 8300000, guid: 691b996cb7e0c3a43af6eed0b9f3c2e4, type: 3}
+  jumpVolume: 0.297
 --- !u!212 &212151056997482712
 SpriteRenderer:
   m_ObjectHideFlags: 1
