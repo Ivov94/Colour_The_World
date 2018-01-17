@@ -956,6 +956,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e41d53411fe79524fa6a288fc7c6f4b4, type: 2}
   m_IsPrefabParent: 0
+--- !u!224 &776372477 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 224839203739474182, guid: e41d53411fe79524fa6a288fc7c6f4b4,
+    type: 2}
+  m_PrefabInternal: {fileID: 776372476}
 --- !u!1001 &890883553
 Prefab:
   m_ObjectHideFlags: 0
@@ -1174,6 +1179,11 @@ Prefab:
       propertyPath: bckgrndMusicVolume
       value: 0.337
       objectReference: {fileID: 0}
+    - target: {fileID: 114585658954031826, guid: a8a5badedd088dc4ca92dc207fa58079,
+        type: 2}
+      propertyPath: canvasEnd
+      value: 
+      objectReference: {fileID: 776372477}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a8a5badedd088dc4ca92dc207fa58079, type: 2}
   m_IsPrefabParent: 0

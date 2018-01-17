@@ -330,6 +330,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e41d53411fe79524fa6a288fc7c6f4b4, type: 2}
   m_IsPrefabParent: 0
+--- !u!224 &57931037 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 224839203739474182, guid: e41d53411fe79524fa6a288fc7c6f4b4,
+    type: 2}
+  m_PrefabInternal: {fileID: 57931036}
 --- !u!1001 &59898350
 Prefab:
   m_ObjectHideFlags: 0
@@ -766,7 +771,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &249599339 stripped
 Transform:
@@ -2143,7 +2148,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2917,6 +2922,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114585658954031826, guid: a8a5badedd088dc4ca92dc207fa58079,
+        type: 2}
+      propertyPath: canvasEnd
+      value: 
+      objectReference: {fileID: 57931037}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a8a5badedd088dc4ca92dc207fa58079, type: 2}
   m_IsPrefabParent: 0
@@ -4900,7 +4910,7 @@ RectTransform:
   - {fileID: 1287758683}
   - {fileID: 1724120839}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
