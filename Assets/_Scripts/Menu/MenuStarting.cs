@@ -25,6 +25,11 @@ public class MenuStarting : MonoBehaviour {
         SceneManager.LoadScene("Level3");
     }
 
+    public void open4Level()
+    {
+        SceneManager.LoadScene("Level4");
+    }
+
     public void openStartingMenu()
     {
         SceneManager.LoadScene("MenuStarting");
