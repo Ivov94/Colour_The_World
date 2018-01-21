@@ -1979,6 +1979,14 @@ Prefab:
       propertyPath: swapColourVolume
       value: 0.512
       objectReference: {fileID: 0}
+    - target: {fileID: 4433515901220302, guid: 21e104f98d471ee4b8796fdc182c3712, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 11.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433515901220302, guid: 21e104f98d471ee4b8796fdc182c3712, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.33
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 21e104f98d471ee4b8796fdc182c3712, type: 2}
   m_IsPrefabParent: 0

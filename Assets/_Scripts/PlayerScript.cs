@@ -74,21 +74,33 @@ public class PlayerScript : MonoBehaviour {
             
         }
 
-        //rb.AddForce(new Vector2(movementX * acceleration, 0));
 
-        rb.velocity = new Vector2(movementX * acceleration, rb.velocity.y);
+        if (movementX == 0)
+        {
+            rb.velocity = new Vector2(movementX/10, rb.velocity.y);
+        }
+        
+        if (rb.velocity.x <= 0.01 && rb.velocity.x >= -0.01)
+        {
+            rb.AddForce(new Vector2(movementX * acceleration, 0), ForceMode2D.Impulse);
+        }
+        else
+        {
+            rb.AddForce(new Vector2(movementX * acceleration, 0));
+        }
+        
 
         rb.AddForce(new Vector2(0, movementY), ForceMode2D.Impulse);
 
         //we dont need it anymore
-        //if (rb.velocity.x > maxSpeed)
-        //{
-        //    rb.velocity = new Vector2(5, rb.velocity.y);
-        //}
-        //else if (rb.velocity.x < -maxSpeed)
-        //{
-        //    rb.velocity = new Vector2(-5, rb.velocity.y);
-        //}
+        if (rb.velocity.x > maxSpeed)
+        {
+            rb.velocity = new Vector2(5, rb.velocity.y);
+        }
+        else if (rb.velocity.x < -maxSpeed)
+        {
+            rb.velocity = new Vector2(-5, rb.velocity.y);
+        }
 
 
         if (Input.GetKeyDown(KeyCode.Tab))
@@ -228,7 +240,7 @@ public class PlayerScript : MonoBehaviour {
     public void UpdateSprite()
     {
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        Sprite sprite = Resources.Load("Sprites/Bucketman/" + bucketManVersion + "/Bucketman" + bucketManVersion + "Body" + bodyColour.colourName + "Bucket" + bucketColour.colourName, typeof(Sprite)) as Sprite;
+        Sprite sprite = Resources.Load("Sprites/Bucketman/" + bucketManVersion + "/Right/Bucketman" + bucketManVersion + "Body" + bodyColour.colourName + "Bucket" + bucketColour.colourName, typeof(Sprite)) as Sprite;
         spriteRenderer.sprite = sprite;
     }
 }
