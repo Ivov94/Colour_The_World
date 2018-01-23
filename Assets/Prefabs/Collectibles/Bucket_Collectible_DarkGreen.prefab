@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4744553575612906}
   - component: {fileID: 212437661520539668}
   - component: {fileID: 114496006598800630}
-  - component: {fileID: 61068460768243992}
+  - component: {fileID: 61294378115586242}
   m_Layer: 0
   m_Name: Bucket_Collectible_DarkGreen
   m_TagString: BucketCollectible
@@ -42,7 +42,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61068460768243992
+--- !u!61 &61294378115586242
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -54,7 +54,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.030442238, y: -0.08025646}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -65,7 +65,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.28, y: 1.28}
+  m_Size: {x: 0.87594795, y: 0.9755764}
   m_EdgeRadius: 0
 --- !u!114 &114496006598800630
 MonoBehaviour:
