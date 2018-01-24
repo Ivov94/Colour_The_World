@@ -56,7 +56,7 @@ public class BucketCollectibleScript : MonoBehaviour {
     public void UpdateSprite()
     {
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        Sprite sprite = Resources.Load("Sprites/Bucket_Collectible/Bucket_Collectible_" + collectibleColour.colourName, typeof(Sprite)) as Sprite;
+        Sprite sprite = Resources.Load("Sprites/Bucket_Collectible/1.1/Bucket_Collectible_" + collectibleColour.colourName, typeof(Sprite)) as Sprite;
         spriteRenderer.sprite = sprite;
     }
 }
