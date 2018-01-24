@@ -64,7 +64,7 @@ public class PlayerScript : MonoBehaviour {
             
             if (rb.velocity.y >= -0.1)
             {
-                jumpReady = false;
+                //jumpReady = false;
                 movementY = jumpForce;
 
                 audioSource.volume = jumpVolume;
@@ -150,22 +150,43 @@ public class PlayerScript : MonoBehaviour {
 
         return true;
     }
-    
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.transform.position.y + collision.gameObject.GetComponent<Collider2D>().bounds.extents.y 
-            < transform.position.y - GetComponent<Collider2D>().bounds.extents.y + collisionTolerance)
+        //if (collision.gameObject.transform.position.y + collision.gameObject.GetComponent<Collider2D>().bounds.extents.y
+        //    < transform.position.y - GetComponent<Collider2D>().bounds.extents.y + collisionTolerance)
+        //{
+        //    rb.velocity = new Vector2(-collision.relativeVelocity.x, 0);
+        //    jumpReady = true;
+        //}
+
+        if (collision.gameObject.CompareTag("Ground"))
         {
-            rb.velocity = new Vector2(-collision.relativeVelocity.x, 0);
             jumpReady = true;
+        }
+
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            jumpReady = true;
+        }
+        
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            jumpReady = false;
         }
     }
 
+
     void OnTriggerEnter2D(Collider2D other)
     {
-
-
-
         if (other.gameObject.CompareTag("ColourTarget"))
         {
             if(game.ColourTarget(other, bucketColour))
