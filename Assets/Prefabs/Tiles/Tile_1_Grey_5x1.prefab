@@ -20,9 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4116645771340378}
   - component: {fileID: 212643798370739152}
-  - component: {fileID: 60076097218526804}
   - component: {fileID: 114334804351651360}
   - component: {fileID: 50490100126019714}
+  - component: {fileID: 61893561871366376}
   m_Layer: 0
   m_Name: Tile_1_Grey_5x1
   m_TagString: Ground
@@ -63,8 +63,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!60 &60076097218526804
-PolygonCollider2D:
+--- !u!61 &61893561871366376
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -85,13 +85,9 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 2.1760912, y: 0.64033747}
-      - {x: -3.2010555, y: 0.63788795}
-      - {x: -3.1999998, y: -0.64}
-      - {x: 3.1999998, y: -0.64}
-      - {x: 3.1999998, y: 0.6378875}
+  serializedVersion: 2
+  m_Size: {x: 6.4, y: 1.28}
+  m_EdgeRadius: 0
 --- !u!114 &114334804351651360
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -138,7 +134,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1476858025
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 9
   m_Sprite: {fileID: 21300000, guid: b88c4c4b0b44127489b9187f0483a747, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
