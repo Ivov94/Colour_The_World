@@ -12,6 +12,7 @@ TagManager:
   - Info
   - Robot
   - Hazard
+  - Ground
   layers:
   - Default
   - TransparentFX
