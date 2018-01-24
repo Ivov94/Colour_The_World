@@ -20,9 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4813989021408702}
   - component: {fileID: 212423202918980632}
-  - component: {fileID: 60740866419145820}
   - component: {fileID: 114964401537185464}
   - component: {fileID: 50110962798210046}
+  - component: {fileID: 61883706087914952}
   m_Layer: 0
   m_Name: Tile_1_Brown_5x1
   m_TagString: Ground
@@ -63,15 +63,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!60 &60740866419145820
-PolygonCollider2D:
+--- !u!61 &61883706087914952
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1794121352149174}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: f346602cfa9497242be7394d71d25379, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -85,15 +85,9 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 3.195456, y: 0.62949663}
-      - {x: 2.4544973, y: 0.64611435}
-      - {x: -2.4154716, y: 0.64183444}
-      - {x: -3.2012467, y: 0.63216454}
-      - {x: -3.1999998, y: -0.64}
-      - {x: 3.1999998, y: -0.64}
-      - {x: 3.1999998, y: 0.62147987}
+  serializedVersion: 2
+  m_Size: {x: 6.4, y: 1.28}
+  m_EdgeRadius: 0
 --- !u!114 &114964401537185464
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -140,7 +134,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1476858025
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 9
   m_Sprite: {fileID: 21300000, guid: 2fa2d5c83afc4f247a9d7ccbf2c7f0d3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -116,20 +116,20 @@ public class PlayerScript : MonoBehaviour {
         {
             
             bool colourUsed = false;
-            if (bucketColour.colourName.Equals("Grey"))
+            if (bodyColour.colourName.Equals("Grey"))
             {
                 interactionRobot.Interact();
             }
             else
             {
-                colourUsed = interactionRobot.Interact(bucketColour);
+                colourUsed = interactionRobot.Interact(bodyColour);
             }
             
             if (colourUsed)
             {
                 audioSource.volume = flushingVolume;
                 audioSource.PlayOneShot(flushingAudioClip);
-                bucketColour = new Colour("Grey");
+                bodyColour = new Colour("Grey");
                 UpdateSprite();
             }
         }
@@ -189,11 +189,11 @@ public class PlayerScript : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("ColourTarget"))
         {
-            if(game.ColourTarget(other, bucketColour))
+            if(game.ColourTarget(other, bodyColour))
             {
                 audioSource.volume = goalPaintedVolume;
                 audioSource.PlayOneShot(goalPaintedAudioClip);
-                bucketColour = new Colour("Grey");
+                bodyColour = new Colour("Grey");
                 UpdateSprite();
                 
             }
