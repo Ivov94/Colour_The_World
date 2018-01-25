@@ -30,6 +30,28 @@ public class MenuStarting : MonoBehaviour {
         SceneManager.LoadScene("Level4");
     }
 
+    public void open5Level()
+    {
+        SceneManager.LoadScene("Level5");
+    }
+
+    public void open6Level()
+    {
+        SceneManager.LoadScene("Level6");
+    }
+
+    public void open7Level()
+    {
+        SceneManager.LoadScene("Level7");
+    }
+
+    public void open8Level()
+    {
+        SceneManager.LoadScene("Level8");
+    }
+
+
+
     public void openStartingMenu()
     {
         SceneManager.LoadScene("MenuStarting");
